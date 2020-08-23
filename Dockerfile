@@ -15,4 +15,4 @@ ADD ./filedrop /filedrop
 
 EXPOSE 5000
 
-ENTRYPOINT ["gunicorn", "--timeout", "120", "--workers", "4", "--bind", "0.0.0.0:5000", "filedrop.app:create_app()"]
+ENTRYPOINT ["gunicorn", "--timeout", "6000", "--workers", "4", "--bind", "0.0.0.0:5000", "filedrop.app:create_app()"]
