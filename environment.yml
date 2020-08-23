@@ -1,0 +1,36 @@
+name: filedrop
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - ca-certificates=2020.6.24=0
+  - certifi=2020.6.20=py38_0
+  - click=7.1.2=py_0
+  - flake8=3.8.3=py_0
+  - flask=1.1.2=py_0
+  - gunicorn=20.0.4=py38_0
+  - importlib-metadata=1.7.0=py38_0
+  - itsdangerous=1.1.0=py_0
+  - jinja2=2.11.2=py_0
+  - ld_impl_linux-64=2.33.1=h53a641e_7
+  - libedit=3.1.20191231=h14c3975_1
+  - libffi=3.3=he6710b0_2
+  - libgcc-ng=9.1.0=hdf63c60_0
+  - libstdcxx-ng=9.1.0=hdf63c60_0
+  - markupsafe=1.1.1=py38h7b6447c_0
+  - mccabe=0.6.1=py38_1
+  - ncurses=6.2=he6710b0_1
+  - openssl=1.1.1g=h7b6447c_0
+  - pip=20.2.2=py38_0
+  - pycodestyle=2.6.0=py_0
+  - pyflakes=2.2.0=py_0
+  - python=3.8.5=hcff3b4d_0
+  - readline=8.0=h7b6447c_0
+  - setuptools=49.6.0=py38_0
+  - sqlite=3.33.0=h62c20be_0
+  - tk=8.6.10=hbc83047_0
+  - werkzeug=1.0.1=py_0
+  - wheel=0.34.2=py38_0
+  - xz=5.2.5=h7b6447c_0
+  - zipp=3.1.0=py_0
+  - zlib=1.2.11=h7b6447c_3
