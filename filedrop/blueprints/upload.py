@@ -13,13 +13,22 @@ def upload_form():
 
 @upload_bp.route('/uploader', methods=['POST'])
 def upload_file():
-    f = request.files['file']
+    files = request.files.getlist("file[]")
     bucket = request.form['bucket_name']
     folder = os.path.join(os.environ.get('UPLOAD_PATH'), bucket)
     if not os.path.exists(folder):
         os.makedirs(folder)
-    path = os.path.join(folder, secure_filename(f.filename))
-    fh = open(path, 'w')
-    f.save(path)
-    fh.close()
-    return 'file uploaded successfully'
+
+    success_files = []
+    fail_files = []
+
+    for f in files:
+        try:
+            path = os.path.join(folder, secure_filename(f.filename))
+            fh = open(path, 'w')
+            f.save(path)
+            fh.close()
+            success_files.append(secure_filename(f.filename))
+        except:  # noqa E722
+            fail_files.append(secure_filename(f.filename))
+    return render_template("success.html", sucesses=success_files, fails=fail_files)

@@ -1,10 +1,9 @@
-<html>
-   <body>
+{% extends "base.html" %}
+{% block body %}
        <h1>Files in bucket {{ bucket }}</h1>
       <ul>
         {% for link in links %}
             <li><a href="{{ link }}">{{ link.split('/')[-1] }}</a></li>
         {% endfor %}
       </ul>
-   </body>
-</html>
+{% endblock %}
