@@ -32,6 +32,17 @@
   <body>
     <div class="container-fluid text-light">
       <div class="row">
+        <div class="col-xs-12">
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <ul class="flashes text-danger" style="margin-top:20px;list-style-type:none">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endwith %}
+        </div>
+      </div>
+      <div class="row">
         <div class="col-xs-6">
           <a class="btn btn-primary mx-auto" href="/upload" role="button"
             >Upload</a

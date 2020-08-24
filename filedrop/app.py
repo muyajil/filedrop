@@ -13,5 +13,6 @@ def create_app():
     app.register_blueprint(upload_bp, url_prefix="/upload")
     app.register_blueprint(download_bp, url_prefix="/download")
     app.register_blueprint(index_bp)
+    app.secret_key = b'secret'
     # TODO: use bootstrap templates
     return app
