@@ -2,19 +2,20 @@
 <h1>Upload files to FileDrop</h1>
 <form action="uploader" method="POST" enctype="multipart/form-data">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-12 mt-4">
       <input
         type="text"
         style="color: #343a40;"
         name="bucket_name"
         placeholder="Bucket Name"
+        required="true"
       />
     </div>
-    <div class="col-xs-12 mt-5">
+    <div class="col-12 mt-4">
       <input type="file" name="file[]" multiple="true" />
     </div>
-    <div class="col-xs-12">
-        <input type="submit" class="btn btn-primary" value="Upload!" />
+    <div class="col-12 mt-4">
+        <input type="submit" class="btn btn-primary btn-lg" value="Upload!" />
       </div>
   </div>
   <!--TODO use filedrop.js to upload files-->

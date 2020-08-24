@@ -6,13 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"
     />
     <style>
       body {
@@ -20,40 +16,34 @@
         font-family: "Roboto";
         color: #f8f9fa !important;
       }
-      input {
-        margin-top: 20px;
-      }
-      .btn {
-        margin-top: 20px;
-      }
     </style>
     {% endblock %}
   </head>
   <body>
     <div class="container-fluid text-light">
-      <div class="row">
-        <div class="col-xs-6">
-          <a class="btn btn-primary mx-auto" href="/upload" role="button"
+      <div class="row mt-4 mb-4">
+        <div class="col-6 col-md-3 col-lg-2">
+          <a class="btn btn-primary btn-block" href="/upload" role="button"
             >Upload</a
           >
         </div>
-        <div class="col-xs-6">
-          <a class="btn btn-primary mx-auto" href="/download" role="button"
+        <div class="col-6 col-md-3 col-lg-2">
+          <a class="btn btn-primary btn-block" href="/download" role="button"
             >Download</a
           >
         </div>
       </div>
       {% block body %} {% endblock %}
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class="flashes text-danger" style="margin-top:20px;list-style-type:none">
-          {% for message in messages %}
-          <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
+      <div class="row">
+        <div class="col-12">
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <ul class="flashes text-danger mt-4" style="list-style-type: none;">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endwith %}
+        </div>
       </div>
     </div>
     <script
