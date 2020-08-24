@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block body %}
-<h1>The following files were uploaded successfully:</h1>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
+    <h1>The following files were uploaded successfully:</h1>
     <ul class="text-success">
       {% for fn in sucesses %}
       <li>
@@ -12,9 +12,9 @@
   </div>
 </div>
 {% if fails %}
-<h1>The following files were <strong>NOT</strong> uploaded successfully:</h1>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
+    <h1>The following files were <strong>NOT</strong> uploaded successfully:</h1>
     <ul class="text-danger">
       {% for fn in fails %}
       <li><p>{{ fn }}</p></li>

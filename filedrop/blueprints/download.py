@@ -10,9 +10,11 @@ def download_form():
     return render_template('downloadRequest.html')
 
 
-@download_bp.route('/downloader', methods=['POST'])
-def get_files():
-    bucket = request.form['bucket_name']
+@download_bp.route('<bucket>')
+@download_bp.route('downloader', methods=['POST', 'GET'])
+def get_files(bucket=None):
+    if bucket is None:
+        bucket = request.form['bucket_name']
     folder = os.path.join(os.environ.get('UPLOAD_PATH'), bucket)
     if not os.path.exists(folder):
         flash("Bucket does not exist!")

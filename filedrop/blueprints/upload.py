@@ -31,4 +31,4 @@ def upload_file():
             success_files.append(secure_filename(f.filename))
         except:  # noqa E722
             fail_files.append(secure_filename(f.filename))
-    return render_template("success.html", sucesses=success_files, fails=fail_files)
+    return render_template("success.html", sucesses=success_files, fails=fail_files, bucket=bucket)

@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block body %}
-<h1>Files in bucket: {{ bucket }}</h1>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
+    <h1>Files in bucket: {{ bucket }}</h1>
     <ul>
       {% for link in links %}
       <li><a href="{{ link }}">{{ link.split('/')[-1] }}</a></li>
