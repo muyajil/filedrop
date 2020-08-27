@@ -21,4 +21,4 @@ RUN flask crontab add
 
 EXPOSE 5000
 
-ENTRYPOINT ["gunicorn", "--timeout", "6000", "--workers", "4", "--bind", "0.0.0.0:5000", "filedrop.app:create_app()"]
+ENTRYPOINT ["gunicorn", "--log-level", "INFO", "--timeout", "6000", "--workers", "4", "--bind", "0.0.0.0:5000", "filedrop.app:create_app()"]

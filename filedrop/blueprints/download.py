@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, request, abort, send_file, flash
+from flask import Blueprint, render_template, request, abort, send_file, flash, current_app
 
 download_bp = Blueprint("download", __name__)
 
@@ -29,4 +29,5 @@ def download_file(bucket, filename):
     path = os.path.join(os.environ.get('UPLOAD_PATH'), bucket, filename)
     if not os.path.exists(path):
         abort(404, "File does not exists!")
+    current_app.logger.info('Downloading file {}'.format(path))
     return send_file(path, as_attachment=True)

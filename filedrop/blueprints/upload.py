@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, current_app
 from werkzeug.utils import secure_filename
 
 upload_bp = Blueprint("upload", __name__)
@@ -25,6 +25,7 @@ def upload_file():
     for f in files:
         try:
             path = os.path.join(folder, secure_filename(f.filename))
+            current_app.logger.info('Uploading file {}'.format(path))
             fh = open(path, 'w')
             f.save(path)
             fh.close()
