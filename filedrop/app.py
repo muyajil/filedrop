@@ -1,4 +1,5 @@
 import os
+import logging
 
 from flask import Flask
 
@@ -16,4 +17,8 @@ def create_app():
     app.register_blueprint(index_bp)
     crontab.init_app(app)
     app.secret_key = b'secret'
+    if __name__ != '__main__':
+        gunicorn_logger = logging.getLogger('gunicorn.error')
+        app.logger.handlers = gunicorn_logger.handlers
+        app.logger.setLevel(gunicorn_logger.level)
     return app
