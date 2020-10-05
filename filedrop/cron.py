@@ -40,4 +40,4 @@ def delete_old_files():
     for abs_path in get_all_dirs(uploads_folder):
         if not os.listdir(abs_path):
             current_app.logger.info('Deleting bucket {}'.format(abs_path))
-            os.remove(abs_path)
+            os.rmdir(abs_path)
