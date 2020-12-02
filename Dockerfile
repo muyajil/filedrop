@@ -18,6 +18,7 @@ ADD ./filedrop /filedrop
 
 RUN touch /var/spool/cron/crontabs/root
 RUN flask crontab add
+RUN /etc/init.d/cron start
 
 EXPOSE 5000
 
