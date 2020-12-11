@@ -15,11 +15,11 @@ ENV UPLOAD_PATH /uploads
 ENV FLASK_APP=filedrop.app:create_app
 
 ADD ./filedrop /filedrop
+ADD entrypoint.sh /entrypoint.sh
 
 RUN touch /var/spool/cron/crontabs/root
 RUN flask crontab add
-RUN /etc/init.d/cron start
 
 EXPOSE 5000
 
-ENTRYPOINT ["gunicorn", "--log-level", "INFO", "--timeout", "6000", "--workers", "4", "--bind", "0.0.0.0:5000", "filedrop.app:create_app()"]
+ENTRYPOINT ["/entrypoint.sh"]
