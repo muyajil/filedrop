@@ -10,6 +10,15 @@ def download_form():
     return render_template('downloadRequest.html')
 
 
+def sizeof(path, suffix='B'):
+    num = os.stat(path).st_size
+    for unit in ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z']:
+        if abs(num) < 1024.0:
+            return "%3.1f %s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%.1f %s%s" % (num, 'Yi', suffix)
+
+
 @download_bp.route('<bucket>')
 @download_bp.route('downloader', methods=['POST', 'GET'])
 def get_files(bucket=None):
@@ -20,8 +29,11 @@ def get_files(bucket=None):
         flash("Bucket does not exist!")
         return render_template('downloadRequest.html')
     files = os.listdir(folder)
+    full_paths = [os.path.join(folder, x) for x in files]
+    file_sizes = [sizeof(x) for x in full_paths]
     links = [f"/download/{bucket}/{f}" for f in files]
-    return render_template('download.html', links=links, bucket=bucket)
+    files_info = zip(files, file_sizes, links)
+    return render_template('download.html', files_info=files_info, bucket=bucket)
 
 
 @download_bp.route('<bucket>/<filename>', methods=['GET'])

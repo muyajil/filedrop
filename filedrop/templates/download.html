@@ -3,8 +3,8 @@
   <div class="col-12">
     <h1>Files in bucket: {{ bucket }}</h1>
     <ul>
-      {% for link in links %}
-      <li><a href="{{ link }}">{{ link.split('/')[-1] }}</a></li>
+      {% for file_info in files_info %}
+      <li><a href="{{ file_info[2] }}">{{ file_info[0] }} ({{ file_info[1] }})</a></li>
       {% endfor %}
     </ul>
   </div>
